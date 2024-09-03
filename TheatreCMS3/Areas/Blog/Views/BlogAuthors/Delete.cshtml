@@ -1,0 +1,85 @@
+﻿@model TheatreCMS3.Areas.Blog.ViewModels.BlogAuthorViewModel
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- external Blog.css file -->
+<link rel="stylesheet" href="~/Content/Areas/Blog.css" />
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" />
+
+<div class="author-details-card">
+    <div class="author-header">
+        <!-- Header content-->
+    </div>
+    <div id="authorDetails">
+        <br />
+        <h3>Are you sure you want to delete this post?</h3>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>@Html.DisplayNameFor(model => model.BlogAuthor.Name)</dt>
+                <dd>@Html.DisplayFor(model => model.BlogAuthor.Name)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.BlogAuthor.Bio)</dt>
+                <dd>@Html.DisplayFor(model => model.BlogAuthor.Bio)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.BlogAuthor.Joined)</dt>
+                <dd>@Html.DisplayFor(model => model.BlogAuthor.Joined)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.BlogAuthor.Left)</dt>
+                <dd>@Html.DisplayFor(model => model.BlogAuthor.Left)</dd>
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-default" />
+                    <a href="@Url.Action("Index", "BlogAuthors")" class="btn btn-dark">
+                        <i class="fas fa-arrow-left"></i> Back to List
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div id="latestPosts" style="display:none;">
+        @if (Model.BlogPosts != null && Model.BlogPosts.Any())
+        {
+            <ul class="post-list">
+                @foreach (var post in Model.BlogPosts)
+                {
+                    <li class="post-item">
+                        <h4>@post.Title</h4>
+                        <p>@post.Description</p>
+                        <img src="@post.BlogPhoto" alt="Post Image" />
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>No posts available.</p>
+        }
+    </div>
+</div>
+
+<script>
+    function showAuthorDetails() {
+        document.getElementById('authorDetails').style.display = 'block';
+        document.getElementById('latestPosts').style.display = 'none';
+        document.getElementById('btnAuthorDetails').classList.add('active');
+        document.getElementById('btnLatestPosts').classList.remove('active');
+    }
+
+    function showLatestPosts() {
+        document.getElementById('authorDetails').style.display = 'none';
+        document.getElementById('latestPosts').style.display = 'block';
+        document.getElementById('btnAuthorDetails').classList.remove('active');
+        document.getElementById('btnLatestPosts').classList.add('active');
+    }
+</script>

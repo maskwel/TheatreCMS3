@@ -1,0 +1,121 @@
+﻿@model TheatreCMS3.Areas.Blog.ViewModels.BlogAuthorViewModel
+
+@{
+    ViewData["Title"] = "Author Details";
+}
+
+<!-- Link to external Blog.css file for styling -->
+<link rel="stylesheet" href="~/Content/Areas/Blog.css" />
+
+<!-- Font Awesome CDN for social media icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" />
+
+<div class="author-details-card">
+    <div class="header-buttons">
+        <button id="btnAuthorDetails" class="header-btn active" onclick="showAuthorDetails()">
+            <i class="fas fa-user"></i> Author Details
+        </button>
+        <button id="btnLatestPosts" class="header-btn" onclick="showLatestPosts()">
+            <i class="fas fa-blog"></i> Latest Posts
+        </button>
+        <button id="btnContact" class="header-btn" onclick="showContact()">
+            <i class="fas fa-envelope"></i> Contact
+        </button>
+        <button id="btnTwitter" class="header-btn" onclick="showTwitter()">
+            <i class="fab fa-twitter"></i> Twitter
+        </button>
+    </div>
+    <div class="author-header">
+        <div>
+            <h2>@Model.BlogAuthor.Name</h2>
+        </div>
+        <div class="social-media-icons">
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        </div>
+    </div>
+    <div class="author-details">
+        <img src="@Model.BlogPhoto" alt="Author Image" class="author-image" />
+        <p>@Model.BlogAuthor.Bio</p>
+    </div>
+
+    <div id="authorDetails">
+        <p><strong>Joined Date:</strong> @Model.BlogAuthor.Joined.ToString("MM/dd/yyyy")</p>
+        <p><strong>Left Date:</strong> @(Model.BlogAuthor.Left.HasValue ? Model.BlogAuthor.Left.Value.ToString("MM/dd/yyyy") : "N/A")</p>
+    </div>
+
+    <div id="latestPosts" style="display:none;">
+        @if (Model.BlogPosts != null && Model.BlogPosts.Any())
+        {
+            <ul class="post-list">
+                @foreach (var post in Model.BlogPosts)
+                {
+                    <li class="post-item">
+                        <h4>@post.Title</h4>
+                        <p>@post.Description</p>
+                        <img src="@post.BlogPhoto" alt="Post Image" />
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>No posts available.</p>
+        }
+    </div>
+</div>
+
+<div class="action-buttons">
+    <div class="left-buttons">
+        <a href="@Url.Action("Index", "BlogAuthors")" class="btn btn-dark">
+            <i class="fas fa-arrow-left"></i> Back to List
+        </a>
+        <a href="@Url.Action("Edit", new { id = Model.BlogAuthor.BlogAuthorId })" class="btn btn-success">
+            <i class="fas fa-edit"></i> Edit
+        </a>
+    </div>
+    <form action="@Url.Action("Delete", new { id = Model.BlogAuthor.BlogAuthorId })" method="post" style="display:inline;">
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-danger">
+            <i class="fas fa-trash"></i>
+        </button>
+    </form>
+</div>
+
+<script>
+    function showAuthorDetails() {
+        document.getElementById('authorDetails').style.display = 'block';
+        document.getElementById('latestPosts').style.display = 'none';
+        document.getElementById('btnAuthorDetails').classList.add('active');
+        document.getElementById('btnLatestPosts').classList.remove('active');
+        document.getElementById('btnContact').classList.remove('active');
+        document.getElementById('btnTwitter').classList.remove('active');
+    }
+
+    function showLatestPosts() {
+        document.getElementById('authorDetails').style.display = 'none';
+        document.getElementById('latestPosts').style.display = 'block';
+        document.getElementById('btnAuthorDetails').classList.remove('active');
+        document.getElementById('btnLatestPosts').classList.add('active');
+        document.getElementById('btnContact').classList.remove('active');
+        document.getElementById('btnTwitter').classList.remove('active');
+    }
+
+    function showContact() {
+        document.getElementById('authorDetails').style.display = 'none';
+        document.getElementById('latestPosts').style.display = 'none';
+        document.getElementById('btnAuthorDetails').classList.remove('active');
+        document.getElementById('btnLatestPosts').classList.remove('active');
+        document.getElementById('btnContact').classList.add('active');
+        document.getElementById('btnTwitter').classList.remove('active');
+    }
+
+    function showTwitter() {
+        document.getElementById('authorDetails').style.display = 'none';
+        document.getElementById('latestPosts').style.display = 'none';
+        document.getElementById('btnAuthorDetails').classList.remove('active');
+        document.getElementById('btnLatestPosts').classList.remove('active');
+        document.getElementById('btnContact').classList.remove('active');
+        document.getElementById('btnTwitter').classList.add('active');
+    }
+</script>

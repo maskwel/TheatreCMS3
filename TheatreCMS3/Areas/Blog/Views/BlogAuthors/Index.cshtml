@@ -1,0 +1,21 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Blog.Models.BlogAuthor>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Blog Authors</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div>
+    @foreach (var author in Model)
+    {
+        <div>
+            @Html.Partial("BlogAuthor", author, new ViewDataDictionary { { "BlogPhoto", "/Content/images/placeholder.jpg" }, { "TwitterUrl", "https://twitter.com/example" }, { "FacebookUrl", "https://facebook.com/example" } })
+        </div>
+    }
+</div>

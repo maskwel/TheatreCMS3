@@ -1,0 +1,75 @@
+﻿@model TheatreCMS3.Areas.Blog.Models.BlogAuthor
+
+@{
+    var uniqueId = Guid.NewGuid().ToString();
+}
+
+<div class="author-details-card">
+    <div class="header-buttons">
+        <a href="javascript:void(0);" class="header-btn active" onclick="showSection('authorDetails-@uniqueId')">Author Details</a>
+        <a href="javascript:void(0);" class="header-btn" onclick="showSection('blogPosts-@uniqueId')">Blog Posts</a>
+        <a href="javascript:void(0);" class="header-btn" onclick="showSection('contact-@uniqueId')">Contact</a>
+        <a href="@ViewBag.TwitterUrl" class="header-btn" target="_blank">Twitter</a>
+    </div>
+
+    <div id="authorDetails-@uniqueId" class="section-content active">
+        <div class="author-header">
+            <img src="@ViewBag.BlogPhoto" class="author-image" alt="Author photo">
+            <div class="author-info">
+                <h2>@Model.Name</h2>
+                <p>@Model.Bio</p>
+                <p>Joined Date: @Model.Joined.ToShortDateString()</p>
+                @if (Model.Left.HasValue)
+                {
+                    <p>Left Date: @Model.Left.Value.ToShortDateString()</p>
+                }
+                <div class="social-media-icons">
+                    <a href="@ViewBag.TwitterUrl"><i class="fab fa-twitter"></i></a>
+                    <a href="@ViewBag.FacebookUrl"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="blogPosts-@uniqueId" class="section-content" style="display:none;">
+        <!-- Placeholder content for blog posts -->
+        <p>Blog posts content goes here...</p>
+    </div>
+
+    <div id="contact-@uniqueId" class="section-content" style="display:none;">
+        <!-- Placeholder content for contact -->
+        <p>Contact content goes here...</p>
+    </div>
+
+    <div class="action-buttons">
+        <a href="@Url.Action("Edit", "BlogAuthors", new { id = Model.BlogAuthorId })" class="btn btn-dark">
+            <i class="fas fa-edit"></i> Edit
+        </a>
+        <a href="@Url.Action("Delete", "BlogAuthors", new { id = Model.BlogAuthorId })" class="btn btn-danger">
+            <i class="fas fa-trash-alt"></i> Delete
+        </a>
+    </div>
+</div>
+
+<script>
+    function showSection(sectionId) {
+        // Find the parent card
+        var card = document.getElementById(sectionId).closest('.author-details-card');
+
+        // Hide all sections within the card
+        card.querySelectorAll('.section-content').forEach(section => {
+            section.style.display = 'none';
+        });
+
+        // Remove active class from all buttons within the card
+        card.querySelectorAll('.header-btn').forEach(button => {
+            button.classList.remove('active');
+        });
+
+        // Show the selected section
+        document.getElementById(sectionId).style.display = 'block';
+
+        // Add active class to the clicked button
+        event.target.classList.add('active');
+    }
+</script>

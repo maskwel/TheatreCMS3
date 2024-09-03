@@ -1,0 +1,305 @@
+﻿/* ▼ This ▼ is for you to easily reference the colors on the Site.css page */
+/* Do not uncomment these color variables */
+
+/* CSS color variables */
+/*:root { /* Color palette for css */
+/* --main-color: #BD1A11;  Red */
+/*--main-color--light: #F04D44;*/ /* Red, a shade lighter */
+/*--secondary-color: #D6972A;*/ /* Yellow gold */
+/*--light-color: #FFFBFB;*/ /* White */
+/*--dark-color: #000000;*/ /* Black */
+/*--secondary-color--dark: #9D7C39;*/ /* Dark Gold */
+/*}*/
+/* Blog.css */
+
+
+.blog-author-form {
+    background-color: var(--main-color--light);
+    padding: 20px;
+    border-radius: 20px;
+    color: var(--light-color);
+    max-width: 800px;
+    margin: auto;
+}
+
+.blog-author-form .form-group {
+    margin-bottom: 15px;
+}
+
+.blog-author-form .form-control {
+    border: 1px solid var(--light-color);
+    border-radius: 5px;
+    color: var(--dark-color);
+    width: 100%;
+    background-color: var(--light-color);
+}
+
+.blog-author-form .btn {
+    margin-right: 10px;
+    border-radius: 5px;
+    width: 140px; 
+    padding: 10px;
+}
+
+.blog-author-form .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: var(--light-color);
+}
+
+.blog-author-form .btn-dark {
+    background-color: #343a40;
+    border-color: #343a40; 
+    color: #FFFFFF;
+}
+
+.blog-author-form .control-label {
+    color: var(--light-color);
+}
+
+.blog-author-form .text-danger {
+    color: #FF0000; 
+}
+
+.inline-fields {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inline-fields .form-control {
+    width: 53%;
+}
+
+/* Set the background color for the body */
+body {
+    background-color: #000; /* Black background */
+}
+
+/* Set the background color for the body */
+body {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text color for the entire page */
+    font-family: Arial, sans-serif; /* Ensure consistent font */
+}
+
+/*Details Delete NEEDS ORGANIZATION--------------------------------------------------------------------------------------------*/
+
+.author-details-card {
+    max-width: 800px;
+    margin: 60px auto 20px auto; 
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff; /* White background */
+    color: #000; /* Black text color */
+    position: relative;
+}
+
+.author-details-card .action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Styling for the top header buttons */
+.header-buttons {
+    display: flex;
+    justify-content: center; 
+    margin-bottom: 20px;
+    position: absolute; 
+    top: -40px; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff; /* White background */
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.header-buttons .header-btn {
+    margin: 0 10px; 
+    padding: 10px 20px; 
+    background-color: #6c757d; /* grey */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; 
+    display: inline-flex; 
+    align-items: center; 
+    min-width: 140px; 
+}
+
+.header-buttons .header-btn.active {
+    background-color: #28a745; 
+}
+
+.header-buttons .header-btn:hover {
+    background-color: #0056b3;
+}
+
+.header-buttons .header-btn i {
+    margin-right: 8px; 
+}
+
+.author-details-card .author-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.author-details-card .author-image {
+    max-width: 150px; 
+    height: auto;
+    border-radius: 50%; 
+    margin-right: 20px; 
+}
+
+.author-details-card h2 {
+    margin: 10px 0;
+}
+
+.author-details-card p {
+    margin: 10px 0;
+}
+
+.social-media-icons {
+    display: flex;
+    gap: 10px; 
+}
+
+.social-media-icons a {
+    font-size: 1.5em;
+    color: #007bff;
+}
+
+.social-media-icons a:hover {
+    color: #0056b3;
+}
+
+/* Styling for the buttons */
+.action-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    max-width: 800px;
+    margin: 20px auto;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+.action-buttons .left-buttons {
+    display: flex;
+    gap: 10px; 
+}
+
+.action-buttons .btn {
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    min-width: 140px;
+    margin: 0 10px; /* Adjust the margin as needed */
+}
+
+.action-buttons .btn-dark {
+    background-color: #343a40; /* Dark button color */
+    margin-right: 0;
+}
+
+.action-buttons .btn-success {
+    background-color: #28a745; /* Success button color */
+}
+
+.action-buttons .btn-danger {
+    background-color: #dc3545; /* Danger button color */
+    margin-left: auto; 
+    width: 20%;
+}
+
+.action-buttons .btn:hover {
+    background-color: #0056b3;
+}
+
+.action-buttons .btn i {
+    margin-right: 8px; 
+}
+
+.post-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.post-item {
+    margin-bottom: 20px;
+}
+
+.post-item h4 {
+    margin: 0 0 10px;
+}
+
+.post-item img {
+    max-width: 200px;
+    height: auto;
+    display: block;
+    margin-top: 10px;
+}
+.header-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    top: -20px; 
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header-buttons .header-btn {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    min-width: 140px;
+}
+
+.header-buttons .header-btn.active {
+    background-color: #28a745;
+}
+
+.header-buttons .header-btn:hover {
+    background-color: #0056b3;
+}
+
+.header-buttons .header-btn i {
+    margin-right: 8px;
+}
+
+.section-content {
+    display: none;
+}
+
+.section-content.active {
+    display: block;
+}
+
+.action-buttons .btn-danger {
+    margin-left: initial; 
+}
+
+/*======================================================================================================================================*/
