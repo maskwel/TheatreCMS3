@@ -13,7 +13,7 @@
 /*Text color classes*/
 
 .cms-text-main {
-    color: var(--main-color);    
+    color: var(--main-color);
 }
 
 .cms-text-main-light {
@@ -62,6 +62,17 @@
     background-color: var(--dark-color);
 }
 /*End background color classes*/
+
+/* Font definition */
+
+@font-face {
+    font-family: Oswald;
+    src: url(/webfonts/Oswald-VariableFont_wght.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* End font definition */
 
 body {
     background-color: var(--dark-color);
@@ -440,7 +451,7 @@ footer {
 
 /* Donate.cshtml View Styling */
 
-.broadway-font{
+.broadway-font {
     font-family: Broadway;
 }
 
@@ -465,3 +476,106 @@ footer {
 }
 
 /*  END SignIn page styling */
+
+/* Home page styling */
+
+/* Style home page logo */
+.home-logo img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.home-logo {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+/* Section title style */
+
+.home-title {
+    font-family: Oswald;
+    position: relative;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+/* Decorative line under section title */
+
+.home-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 70px;
+    height: 3px;
+    background-color: var(--main-color);
+}
+
+/* Style home layout */
+.flex-container {
+    display: flex;
+    width: 100%;
+    gap: 40px;
+}
+
+/* Column 1 takes up to 2/3 of space */
+.home-col1 {
+    flex: 2;
+}
+
+.home-col1 img {
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+/* Column 2 takes up to 1/3 of space */
+.home-col2 {
+    flex: 1;
+}
+
+/* Donation btn style */
+.home-btn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--main-color);
+    color: var(--light-color);
+    border: none;
+    border-radius: 5px;
+    padding: 20px;
+}
+.home-btn:hover{
+    background-color: var(--main-color--light);
+}
+.btn-container{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+/* Sponsors section style */
+.sponsors-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.sponsor-img-container{
+    overflow: hidden;
+    height: 50px;
+    
+}
+
+/* Home acknowledgement style */
+
+.home-acknowledgement {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.home-acknowledgement a {
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+/* END Home page styling */
