@@ -13,4 +13,5 @@ Next, I created two columns for the page content. The left column contains a sec
 
 For displaying sponsor images in a responsive horizontal row, I utilized the flex-wrap property to ensure they adapted correctly to different screen sizes.
 
+# Story 2
 The next task involved displaying the total number of developer names on the Sign-In page. To accomplish this, I wrote a simple JavaScript function using jQuery. The function retrieves the total number of <p> elements inside the <div> with the ID PersonList and assigns this count to a <span> element with the ID countDevs.
